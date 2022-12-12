@@ -1,0 +1,519 @@
+html{
+    scroll-behavior: smooth;
+}
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.quote {
+    display: flex;
+    height:250px;
+    font-size: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.h1{
+    transform: scale (0.7);
+    animation:scale 5s forwards cubic-bezier(0.5, 1, 0.89, 1) infinite;
+    
+}
+@keyframes scale{
+    100%{
+        transform: scale(1);
+    }
+}
+
+.quote span {
+    display: inline-block;
+    opacity: 0;
+    filter: blur(4px);
+  }
+.quote span:nth-child(1) {
+    animation: fade-in 2s 0.2s forwards  infinite;
+  }
+  
+  .quote span:nth-child(2){
+    animation: fade-in 2s 0.4s forwards infinite;
+  }
+  
+  .quote span:nth-child(3){
+    animation: fade-in 2s 0.6s forwards  infinite;
+  }
+  
+  .quote span:nth-child(4){
+    animation: fade-in 2s 0.8s forwards  infinite;
+  }
+  
+  .quote span:nth-child(5){
+    animation: fade-in 2s 1s forwards  infinite;
+  }
+  
+  .quote span:nth-child(6){
+    animation: fade-in 2s 1.2s forwards  infinite;
+  }
+  
+  .quote span:nth-child(7){
+    animation: fade-in 2s 1.4s forwards  infinite;
+  }
+  
+  .quote span:nth-child(8) {
+    animation: fade-in 2s 1.6s forwards infinite;
+  }
+  
+  .quote span:nth-child(9){
+    animation: fade-in 2s 1.8s forwards  infinite;
+  }
+
+  .quote span:nth-child(10){
+    animation: fade-in 2s 2s forwards infinite;
+  }
+
+  @keyframes fade-in {
+    100% {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+.top-part{
+    background-color: rgba(31,207,251,255);
+    position: sticky;
+    top:0%;
+    z-index:1;
+    
+}
+.constant-one{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+a {
+  text-decoration: none;
+}
+.features-container{
+    width:600px;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top:8%;
+    font-size:25px;
+    
+}
+
+.features-container a{
+  color: black;
+ 
+  text-decoration: none;
+}
+.navigation{
+    
+    text-decoration: none;
+}
+.navigation :hover{
+  height: 10%;
+  width:15%;
+  background-color:white;
+  padding:10px;
+}
+
+.second-main{
+    text-align: center;
+}
+.image-content{
+    display: flex;
+    justify-content: space-around;
+}
+/*end of homepage*/
+/*start of booklist*/
+.page-header{
+    text-align:center;
+}
+.individual-alphabet{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+    font-size:25px;
+    /* border:5px solid black; */
+    padding-bottom: 5px;
+    
+}
+.individual-alphabet a:hover{
+  border:2px solid black;
+  padding:10px;
+  border-radius:50%;
+  width:5%;
+  background-color: beige;
+}
+input[id=search]{
+  width: 50%;
+  margin: 2% 0;
+  border-radius: 5px;
+  padding: 50px 100px;
+  box-sizing: border-box;
+
+}
+
+form{
+    display: flex;
+    justify-content:center;
+}
+
+/*start of cards*/
+
+.alpha-heading{
+    width:1000px;
+    display: flex;
+    justify-content: center;
+    color:white;
+    animation:color-change;
+    animation-duration:5s;
+    animation-iteration-count:infinite;
+    font-size: 40px;
+    text-align: center;    
+}
+
+@keyframes color-change {
+  0% {color: black;}
+  50% {color:white;}
+  100% {color: black;}
+}
+
+
+.alpha-navi{
+  width:1000px;;
+  margin-top:3%;
+  margin-left:50%;
+  animation: gradient;
+  animation-duration:5s;
+  animation-iteration-count:infinite;
+  border-radius: 50%;
+  width:40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+@keyframes gradient {
+  0% {background-color: #01d3ec;}
+  50% {background-color:#09029e;}
+  100% {background-color: #01d3ec;}
+}
+.alpha-container{
+    
+    display:flex;
+    justify-content:space-evenly;
+    align-items:center;
+    overflow-x: scroll;
+    padding-top:2%;
+    padding-left:5%;
+    
+}
+.alpha-container ::-webkit-scrollbar{
+     display: none;
+}
+.book-cards{
+    
+    background-color: hsl(216, 50%, 16%);
+    border-radius:18px;
+    height:360px;
+    width:270px;
+    margin-left: 5%;
+}
+.alpha-container .book-cards:nth-child(odd){
+    background-color: aqua;
+}
+
+.alpha-container .book-cards:nth-child(even){
+    background-color: #0AA1DD;
+}
+.main-img{
+    
+    height:250px;
+    width:250px;
+    
+}
+.nooffonts{
+    padding-top:18px;
+    padding-left:5px;
+
+}
+.firstfont{
+    font-size:20px;
+    color:black;
+    text-align: center;
+    
+
+}
+.secondfont{
+    color:hsl(215, 51%, 70%);
+    text-align: center;
+}
+.top{
+position: relative;
+}
+.overlay{
+    position: absolute;
+    top:0px;
+    left:0px;
+    height: 100%;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.6);
+    color:white;
+    opacity: 0;
+    font-family: 'Times New Roman';
+    
+}
+.overlay:hover{
+    opacity: 1;
+}
+/*end of booklist*/
+/*start of vocabulary section*/
+.card-containers{
+    display: flex;
+    justify-content: space-evenly;
+    width:100%;
+    padding-top:3%;
+
+}
+.card-1,.card-2,.card-3,.card-4 {
+    height:400px;
+    width:20%;
+    background-color: aqua;
+}
+
+.card-1,.card-2,.card-3,.card-4{
+    background-color: transparent;
+}
+
+.audio{
+    display: flex;
+}
+  
+  .content-inside{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  }
+  
+  /* .card-1:hover .content-inside {
+    transform: rotateY(180deg);
+  } */
+  .card-2:hover .content-inside {
+    transform: rotateY(-180deg);
+  }
+.card-3:hover .content-inside {
+    transform: rotateX(-180deg);
+  }
+.card-4:hover .content-inside {
+    transform: rotateX(180deg);
+  }
+  
+  .front-view, .rear-view {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .front-view {
+    background-color: aqua;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  
+  .rear-view {
+    background-color: aqua;
+    color: white;
+    transform: rotateY(180deg);
+  }
+  .card-1:hover {
+    -webkit-animation: flip-horizontal-bottom 0.4s ease-out 1s both;
+    animation: flip-horizontal-bottom 0.4s ease-out 1s both;
+  }
+  @keyframes flip-horizontal-bottom{
+    0% {
+      -webkit-transform: rotateX(0);
+              transform: rotateX(0);
+    }
+    100% {
+      -webkit-transform: rotateX(-180deg);
+              transform: rotateX(-180deg);
+    }
+  } 
+ 
+/*end of voacbulary session*/
+/*start of login page*/
+
+.body{
+  height: 100vh;
+  width: 100%;
+  background-image:linear-gradient(#09029e,#01d3ec) ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   
+}
+
+.header-3{
+  font-size:50px;
+  text-align: center;
+}
+.form-container{
+  width: 48%;
+  height: 70%;
+  background-image:url('../images/log-in.png');
+  background-size: cover;
+  /* background-size: 500px 1100px; */
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+ 
+}
+.log-in{
+  background-blend-mode:overlay;
+  width:60%;
+  margin-right: 380px;
+  margin-left:20px;
+  /* height:100vh; */
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  
+}
+
+
+input[type=e-mail], input[type=password]{
+  width: 100%;
+  margin: 2% 0;
+  border-radius: 5px;
+  padding: 15px 18px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #030804;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 7px 0;
+  width: 100%;
+  font-size: 18px;
+}
+
+button:hover {
+  cursor: pointer;
+  
+}
+.to-signup{
+  background-color: #030804;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 7px 0;
+  width: 100%;
+  font-size: 18px;
+
+}
+.button-box{
+  padding-top:3%;
+  display: flex;
+  justify-content: space-between;
+}
+/* start of sign-up page */
+
+.signup-body{
+  height: 100vh;
+  width: 100%;
+  background-image:linear-gradient(#01d3ec,#09029e) ; 
+}
+.signup{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height:70%;
+  width: 40%;
+  border:2px solid white;
+  box-shadow:5px 5px 15px white;
+  border-radius: 8px;
+  padding: 20px 40px;
+  background-image: url('../images/signup-page.png');
+  background-size: cover;
+}
+
+.title-1, .title-2, .title-3 {
+  text-align: center;
+  
+}
+
+
+.inputContainer {
+  position: relative;
+  height: 45px;
+  width: 90%;
+  margin-bottom: 17px;
+}
+.input {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 50%;
+  border: 1px solid #DADCE0;
+  border-radius: 7px;
+  font-size: 16px;
+  padding: 0 20px;
+  outline: none;
+  background: none;
+  z-index: 1;
+}
+
+::placeholder{
+  color: transparent;
+}
+
+.label {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 0 4px;
+  background-color: white;
+  color: #DADCE0;
+  font-size: 16px;
+  transition: 0.5s;
+  z-index: 0;
+}
+
+.input:focus + .label {
+  top: -7px;
+  left: 3px;
+  z-index: 10;
+  font-size: 14px;
+  font-weight: 600;
+  color: purple;
+}
+
+/* end of sign-up page */
+
