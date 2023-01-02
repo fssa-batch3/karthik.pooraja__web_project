@@ -1,0 +1,22 @@
+{
+  "name": "wisenow",
+  "version": "1.0.0",
+  "description": "WISENOW\r  A vocabulary website which is usedful for book readers.\r  Using the flash card method the book reader can able to understand the meaning of the words\r  Here you can see the audio of the word (to enhance pronounciation),word and its meaning (for understanding),relevant words (to enhance vocabulary) and a sentence with that word (to enhance aplication of tat word in day-to-day life)\r  So use this website to remove the barrier which prevents you to connect with books",
+  "main": "main.js",
+  "scripts": {
+    "dev": "http-server ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KarthikRaja0517/WISENOW.git"
+  },
+  "author": "KarthikRaja0517",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KarthikRaja0517/WISENOW/issues"
+  },
+  "homepage": "https://github.com/KarthikRaja0517/WISENOW#readme",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}

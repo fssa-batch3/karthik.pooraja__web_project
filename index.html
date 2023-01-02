@@ -5,21 +5,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>WISENOW HOMEPAGE</title>
-        <link rel="stylesheet" href="assets/css/homepage.css">
-        <link rel="icon" href="assets/images/logo.png">
+        <link rel="stylesheet" href="assets/css/common.css">
+        <link rel="icon" href="assets/images/logo.png" alt="icon">
 
     </head>
     <body>
         <header class="top-part">
             <nav class="constant-one">
-                <div class="website-title">
-                    <a href="index.html"><img src="assets/images/logo.png" alt="LOGO"></a>
+                <div >
+                    <a href="index.html"><img class="website-title" src="assets/images/logo.png" alt="LOGO"></a>
                 </div>
                 <div >
                     <ul class="features-container">
-                        <li class="navigation"><a href="pages/booklist.html">SELECT BOOKS</a></li>
-                        <li class="navigation"><a href="pages/suggestion.html">SUGGESTION</a></li>
-                        <li class="navigation"><a href="pages/log-in.html">LOG-IN</a></li>
+                        <li class="navigation"><a href="pages/list of books/booklist.html">SELECT BOOKS</a></li>
+                        <li class="navigation"><a href="pages/membership/suggestion.html">SUGGESTION</a></li>
+                        <li class="navigation"><a href="pages/membership/log-in.html">LOG-IN</a></li>
                         <li class="navigation"><a href="">ABOUT</a></li>
                     </ul>
                 </div>
@@ -43,26 +43,43 @@
             <div class="working-explanation">
                 <h1 class="second-main">HOW IT WORKS</h1>
                 <div class="image-content">
-                    <div>
-                       <video autoplay muted loop>
-                        <source src="assets/videos/flashcard.mp4">
-                       </video>
+                    <div class="flashcard-feature">
+                        <div class="features-in-words">
+                        <h2>FLASHCARD-FEATURE</h2>
+                        <p>In this website, Flashcard method is used to learn vocabulary from books</p>
+                        <p>In front side, you can see the word and the relevant words to it</p>
+                        <p>In rear side, you can see the meaning and application of that word in a sentence</p>
+                        </div>
+                        <img src="https://gabrielromualdo.com/api/content/static_files/flipping-card-animation-css/code_result_2.gif" alt="flashcard">
+                        
                     </div>
-                    <div>
-                       <h2>EXPLANATION</h2>
-                       <ul>
-                        <li>Select the required book</li>
-                        <li>Navigate to the required word </li>
-                        <li>click the audio for pronounciation</li>
-                        <li>check the related word, meaning and application of it</li>
-                       </ul>
-                       
+                    <br>
+                    <br>
+                    <div class="audio-feature">
+                        <div class="video-container">
+                        <video autoplay muted loop>
+                            <source src="assets/videos/Audio tag features.mp4">
+                            Your browser does not support this video format
+                        </video>
+                        </div>
+                        <div  class="features-in-words">
+                        <h2>AUDIO FEATURE</h2>
+                        <p>Along with vocabulary,for effective usage of words in day-to-day application, Audio feature is also added up</p>
+                        <p>this allows to play the audio for that word which is above that flashcard</p>
+                        <p>you can use the playback speed to observe the word in your own pace</p>
+                        </div>
+                        
                     </div>
+    
                 </div>
             </div>
-            <div class="bottom-navigator">
-                <a href="booklist.html"><p>CLICK HERE TO VIEW THE BOOKLIST</p></a>
+            <!-- <div >
+                <a href="pages/list of books/booklist.html"><img class="bottom-navigator" src="assets/images/Navigation-arrow.jpg" alt="navigation arrow"></a>
+            </div> -->
+            <div class="bottom-navigator"> 
+            <input type="submit" class="submitBtn booklist-navigation" value="click here to view books">
             </div>
+
         </main>
     </body>
 </html>
