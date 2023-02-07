@@ -29,27 +29,27 @@
     </nav>
   </header>
   <main>
-  <div class="signup">
-    <form action="../../pages/membership/log-in.html" class="form">
-      <div class="sign-up-headings">
-        <h1 class="title-1">New to WISENOW</h1>
-        <h2 class="title-2">Sign-up</h2>
-        <h3 class="title-3">Please fill the required details to <br> Create an account</h3>
-      </div>
+    <div class="signup">
+      <form action="" class="form" id="registerform">
+        <div class="sign-up-headings">
+          <h1 class="title-1">New to WISENOW</h1>
+          <h2 class="title-2">Sign-up</h2>
+          <h3 class="title-3">Please fill the required details to <br> Create an account</h3>
+        </div>
 
-       <!--E-mail or Phone number -->
-       <label for="username">First Name</label>
-       <input type="text"  name="username" required>
+        <!--E-mail or Phone number -->
+        <label for="username">First Name</label>
+        <input type="text" name="firstname" required>
 
-       <br><br>
+        <br><br>
 
-       <!-- Password -->
-       <label for="password">Last Name</label>
-       <input type="text" name="password" required>
+        <!-- Password -->
+        <label for="password">Last Name</label>
+        <input type="text" name="lastname" required>
 
         <!--E-mail or Phone number -->
         <label for="e-mail">E-mail</label>
-        <input type="e-mail"  name="e-mail" required>
+        <input type="e-mail" name="e-mail" required>
 
         <br><br>
 
@@ -58,14 +58,46 @@
         <input type="password" name="password" required>
 
         <!-- confirm Password -->
-        <label for="password">Confirm Password</label>
-        <input type="password" name="password" required>
+        <!-- <label for="password">Confirm Password</label>
+        <input type="password" name="confirmpassword" required> -->
 
 
-      <input type="submit" class="submitBtn" value="Sign up">
-    </form>
-  </div>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
   </main>
+  <script>
+    const registration = document.getElementById("registerform"); //This line declares a constant variable called "registration" which retrieves the HTML element with id "registerform".
+
+registration.onsubmit = e => { //This line sets an event listener on the "registration" form, to listen for the "submit" event. The event object is passed as a parameter to the anonymous arrow function (e).
+
+  e.preventDefault(); // This line calls the "preventDefault" method on the event object to prevent the default behavior of the form submit event, which is to reload the page.
+
+  const f_name = registration["firstname"].value; //This line declares a constant variable called "f_name" and sets its value to the value of the form input element with the name "firstname".
+  const l_name = registration["lastname"].value; //Similar to the previous line, this line declares a constant variable called "l_name" and sets its value to the value of the form input element with the name "lastname".
+  const email = registration["e-mail"].value; //Similar to the previous line, this line declares a constant variable called "email" and sets its value to the value of the form input element with the name "e-mail".
+  const password = registration["password"].value; //Similar to the previous line, this line declares a constant variable called "password" and sets its value to the value of the form input element with the name "password".
+
+
+  const userdetails = [];// This line declares a constant variable called "userdetails" and sets its value to an empty array.
+
+  const record = {};//This line declares a constant variable called "record" and sets its value to an empty object.
+
+  record["first_name"] = f_name;//This line sets the value of the property "first_name" in the "record" object to the value of the "f_name" constant.
+  record["last_name"] = l_name;//Similar to the previous line, this line sets the value of the property "last_name" in the "record" object to the value of the "l_name" constant.
+  record["email_id"] = email;//Similar to the previous line, this line sets the value of the property "email_id" in the "record" object to the value of the "email" constant.
+  record["password"] = password; //Similar to the previous line, this line sets the value of the property "password" in the "record" object to the value of the "password" constant.
+
+
+  const data = JSON.parse(localStorage.getItem("userrecords")) || userdetails; // This line declares a constant variable called "data" and sets its value to the result of parsing the value of the "userrecords" key in the local storage, or to the "userdetails" constant if the value of the key is null.
+
+
+  data.push(record);// This line adds the "record" object to the end of the "data" array
+
+  localStorage.setItem("userrecords", JSON.stringify(data));// This line sets the value of the "userrecords" key in the local storage to a string representation of the "data" array, using the "JSON.stringify" method.
+}
+  </script>
+
 </body>
 
 </html>

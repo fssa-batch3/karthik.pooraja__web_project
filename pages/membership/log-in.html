@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../assets/css/common.css">
+  <link rel="stylesheet" href="../../assets/css/responsive-common.css">
 
   <title>Document</title>
 </head>
@@ -30,7 +31,7 @@
   </header>
   <main>
     <div class="form-container">
-      <form action="../../index.html" class="log-in">
+      <form action="" class="log-in">
 
         <div class="headingsContainer">
           <h3 class="header-3">Log in to <br> WISENOW</h3>
@@ -41,30 +42,60 @@
         <div class="mainContainer">
           <!--E-mail or Phone number -->
           <label for="username">Email or Phone number</label>
-          <input type="e-mail" placeholder="danieljosh1234@gmail.com or 1234567890" name="username" required>
+          <input type="e-mail" placeholder="danieljosh1234@gmail.com or 1234567890" name="username"
+            id="e-mail" required>
 
           <br><br>
 
           <!-- Password -->
           <label for="password">Your password</label>
-          <input type="password" placeholder="Enter Password" name="password" required>
+          <input type="password" placeholder="Enter Password" name="password" id="password" required>
 
           <!-- sub container for the checkbox and forgot password link -->
 
         </div>
-        <!-- <button class="to-login">log-in</button> -->
-        <input type="submit" class="submitBtn" value="Log-in">
+        
+
         <div class="button-box">
           <p>If you don't have a account</p>
           <a href="../membership/sign-up.html" class="sign-up-button">sign-up</a>
         </div>
       </form>
+      <button class="submitBtn" type="button" onclick="joshua()">LOG-IN</button>
+
     </div>
   </main>
 
+  <script>
+    function joshua(){
+      let email = document.getElementById("e-mail").value;
+      let password = document.getElementById("password").value;
+      let localUsers = JSON.parse(localStorage.getItem("userrecords"));
+      if (!localUsers) {
+        alert("Login Failure");
+        return;
+      }
+      let Success = false;
+      for (let i = 0; i < localUsers.length; i++) {
+        if (localUsers[i].email_id === email && localUsers[i].password === password) {
+          Success = true;
+          break;
+        }
+      }
+      if (Success) {
+        alert("Login Success");
+      } else {
+        alert("Login Failure");
+      }
+      
+    }
+
+
+  </script>
 
 
 
 </body>
 
 </html>
+
