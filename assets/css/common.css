@@ -144,6 +144,7 @@ a {
 
 .navigation {
   text-decoration: none;
+  font-size: 25px;
 
 }
 
@@ -274,6 +275,10 @@ form {
 
 #search::placeholder {
   color: black;
+}
+
+.container img{
+  width:100%;
 }
 
 /*start of cards*/
@@ -549,6 +554,7 @@ audio {
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
+  flex-direction:column;
   justify-content: center;
   align-items: center;
 
@@ -559,7 +565,6 @@ audio {
   width: 60%;
   margin-right: 380px;
   margin-left: 20px;
-
   display: flex;
   flex-direction: column;
 
@@ -949,3 +954,5 @@ text-decoration: none;
 }
 
 /*end of booklist changed*/
+
+
