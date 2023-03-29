@@ -21,7 +21,7 @@ Wireframe: https://drive.google.com/file/d/1OSJSJ6uri7nUO8aKDHtLG45yNvDElv16/vie
  - Expected Result:
   1.The account is Successfully created and the person have to click the below log-in button.
 
-###Log-in to the account (completed :white_check_mark:)
+### Log-in to the account (completed :white_check_mark:)
 -Steps:
  1 .click the below log-in button.
  2. Fill the required information such as email and password.
