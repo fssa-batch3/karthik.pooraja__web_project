@@ -15,21 +15,19 @@ Wireframe: https://drive.google.com/file/d/1OSJSJ6uri7nUO8aKDHtLG45yNvDElv16/vie
 
 ### Create an account(completed :white_check_mark:)
 -Steps:
- 1 .Navigate to the sign-in page.
- 2. Fill the required information such as Name, email, and password.
- 3. Click the "Create Account" button.
+ 1 .click the user entry button to enter sign-up page.
+ 2. Fill the required information such as First Name,Last Name, email, password and confirm password.
+ 3. Click the "Sign-up button" button.
  - Expected Result:
-  1.The user is redirected to the login page.
+  1.The account is Successfully created and the person have to click the below log-in button.
 
-
-### Create an account(completed :white_check_mark:)
-- Scenario 1: Successfully login in to account
-    - Steps:
-        1. Navigate to the login page.
-        2. Fill the required information such as email, and password.
-        3. Click the "login" button.
-    - Expected Result:
-        - The user is redirected to the user profile page.
+###Log-in to the account (completed :white_check_mark:)
+-Steps:
+ 1 .click the below log-in button.
+ 2. Fill the required information such as email and password.
+ 3. Click the "Log-in" button.
+ - Expected Result:
+  1.The user is successfully log-in and he is redirected to the profile page
 
 ### View account details: ( completed ✅ ) Scenario 1: Successfully view account details Steps:
 
