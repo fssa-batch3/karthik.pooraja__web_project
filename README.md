@@ -11,3 +11,22 @@ Market Research: https://docs.google.com/document/d/1fkCT7grQ4pBzX6Drc7ZcaZfTAXM
 User flow: https://drive.google.com/file/d/1GQF_IJz_pLf7rSGarvDdi6y0igNndb_l/view?usp=share_link
 
 Wireframe: https://drive.google.com/file/d/1OSJSJ6uri7nUO8aKDHtLG45yNvDElv16/view?usp=share_link
+
+
+### Create an account(completed :white_check_mark:)
+-Steps:
+ 1 .Navigate to the sign-in page.
+ 2. Fill the required information such as Name, email, and password.
+ 3. Click the "Create Account" button.
+ - Expected Result:
+  1.The user is redirected to the login page.
+
+
+### Create an account(completed :white_check_mark:)
+- Scenario 1: Successfully login in to account
+    - Steps:
+        1. Navigate to the login page.
+        2. Fill the required information such as email, and password.
+        3. Click the "login" button.
+    - Expected Result:
+        - The user is redirected to the user profile page.
