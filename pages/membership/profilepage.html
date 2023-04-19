@@ -1,140 +1,147 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="../../assets/css/profilepage.css">
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+
+<head>
+    <link rel="stylesheet" href="../../assets/css/profilepage.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
 <body>
-<section class="wrapper">
-    <div class="form signup">
-        <header>Profile Details</header>
-        <form>
-            <label>
-                <input type="text" id="first_name" placeholder="First name" disabled />
-            </label>
-            <label for="">
-                <input type="text" id="last_name" placeholder="Last name" disabled />
-            </label>
-            <label for="">
-                <input type="text" id="email" placeholder="Email address" disabled />
-            </label>
-            <label for="">
-                <input id="password" placeholder="Password" disabled />
-            </label>
-            <label for="">
-                <input type="number" id="ph_no" placeholder="Phone Number" disabled min="10" max="10"/>
-            </label>
+    <section class="wrapper">
+        <div class="form signup">
+            <header>Profile Details</header>
+            <form>
+                <label>
+                    <input type="text" id="first_name" placeholder="First name" disabled="true" />
+                </label>
+                <label for="">
+                    <input type="text" id="last_name" placeholder="Last name"  disabled="true" />
+                </label>
+                <label for="">
+                    <input type="text" id="email" placeholder="Email address"  disabled="true" />
+                </label>
+                <label for="">
+                    <input id="password" placeholder="Password"  disabled="true" />
+                </label>
+                <label for="">
+                    <input type="number" id="ph_no" placeholder="Phone Number"  disabled="true" maxlength="10" />
+                </label>
 
-            <button id="edit_removal">Edit Profile</button>
-            <button id="save">Save Profile</button>
-            <button id="delete_item">Delete profile</button>
-        </form>
-    </div>
+                <button id="edit_removal">Edit Profile</button>
+                <button id="save">Save Profile</button>
+                <button id="delete_item">Delete profile</button>
+            </form>
+        </div>
 
 
 
-</section>
-
+    </section>
 
 <script>
 
-    let edit_btn = document.getElementById("edit_removal");
-    edit_btn.style.display=""
+// edit to save && save to edit
+let edit_btn = document.getElementById("edit_removal");
+let save = document.getElementById("save");
 
-    let save = document.getElementById("save");
-    save.style.display = "none"
+edit_btn.style.display = "block"
+save.style.display = "none"
 
-    edit_btn.addEventListener("click", display)
-    function display() {
-        let save = document.getElementById("save");
-        save.style.display = ""
-        edit_btn.style.display="none";
-        // let edit_removal = document.getElementsByTag("save");
-        // save.classList.remove("save_profile");
+edit_btn.onclick =() =>{
+    edit_btn.style.display = "none";
+    save.style.display = "block"
+}
+
+
+// display user profile
+let users = JSON.parse(localStorage.getItem("user_signup_list"));
+let login_user = localStorage.getItem("login_id");
+
+const firstname = document.getElementById("first_name");
+const lastname = document.getElementById("last_name");
+const email_name = document.getElementById("email");
+const password = document.getElementById("password");
+const phone = document.getElementById("ph_no");
+
+
+for (let i = 0; i < users.length; i++) {
+
+    if (login_user == users[i]["email"]) {
+
+        firstname.value = users[i]["first_name"]
+        lastname.value = users[i]["last_name"]
+        email_name.value = users[i]["email"]
+        password.value = users[i]["password"]
+
+        break;
     }
+}
 
 
-    let users = JSON.parse(localStorage.getItem("user_signup_list"));
+// edit profile
+document.getElementsByTagName("form")[0].addEventListener("submit", (e) => {
+    e.preventDefault();
+    edit();
+});
+function edit() {
+    document.getElementById("first_name").disabled = false;
+    document.getElementById("last_name").disabled = false;
+    document.getElementById("password").disabled = false;
+    document.getElementById("ph_no").disabled = false;
+    // save.classList.remove("save_profile");
+}
 
-    const firstname = document.getElementById("first_name")
-    const lastname = document.getElementById("last_name")
-    const email_name = document.getElementById("email")
-    const password = document.getElementById("password")
-    const phone = document.getElementById("ph_no");
+save.onclick = () =>{
 
+    for(let i = 0; i < users.length; i++){
 
-    let profile_arr = JSON.parse(localStorage.getItem("profile_details"));
+        if (email_name.value == users[i]["email"]){
+            
+            users[i]["first_name"] = firstname.value;
+            users[i]["last_name"] = lastname.value;
+            users[i]["password"] = password.value;
+            users[i]["phone_number"] = phone.value;
 
-    let check;
-
-    users.find((userobj) => {
-        if (userobj["email"] == profile_arr["email"] && userobj["password"] == profile_arr["password"]) {
-
-            firstname.value = userobj["first_name"]
-            lastname.value = userobj["last_name"]
-            phone.value = userobj["ph_no"]
-            email_name.value = userobj["email"]
-            password.value = userobj["password"]
-            return check = userobj;
+            break;
         }
-    })
-
-    document.getElementsByTagName("form")[0].addEventListener("submit", (e) => {
-        e.preventDefault();
-        edit();
-    })
-
-    function edit() {
-        document.getElementById("first_name").disabled = false;
-        document.getElementById("last_name").disabled = false;
-        document.getElementById("password").disabled = false;
-        document.getElementById("ph_no").disabled = false;
-
-        let save = document.getElementById("save");
-        save.classList.remove("save_profile");
     }
+    localStorage.setItem("user_signup_list", JSON.stringify(users));
+    alert("Profile Edited")
 
+    // document.getElementById("first_name").disabled = true;
+    // document.getElementById("last_name").disabled = true;
+    // document.getElementById("password").disabled = true;
+    // document.getElementById("ph_no").disabled = true;
 
-    document.getElementById("save").addEventListener("click", (e) => {
+    // alert("bye");
 
-        check["first_name"] = document.getElementById("first_name").value;
-        check["last_name"] = document.getElementById("last_name").value;
-        check["password"] = document.getElementById("password").value;
-        check["ph_no"] = document.getElementById("ph_no").value;
+    location.reload();
 
-        console.log(check)
+    save.style.display = "none";
+    edit_btn.style.display = "block"  
 
-        localStorage.setItem("user_signup_list", JSON.stringify(users));
+    
+}
 
-        console.log(users);
+// delete profile
+document.getElementById("delete_item").addEventListener("click", deleteItem);
+function deleteItem() {
+    for (let i = 0; i < users.length; i++) {
+        if (document.getElementById("email").value == users[i]["email"]) {
+            users.splice(i, 1)
+            confirm("Are you sure to delete your account")
+            localStorage.setItem("user_signup_list", JSON.stringify(users));
 
-        // let save = document.getElementById("save");
-        // if (save.className == "save") {
-        //     save.className == 
-        // }
-        // save.classList.toggle("save_profile");
+            window.location.href = "user-entry.html";
 
-
-    })
-
-    document.getElementById("delete_item").addEventListener("click",deleteItem)
-    function deleteItem() {
-        for (let i = 0; i < users.length; i++) {
-            if (document.getElementById("email").value == users[i]["email"]) {
-                users.splice(i, 1)
-                confirm("Are you sure to delete your account")
-                localStorage.setItem("user_signup_list", JSON.stringify(users));
-
-                window.location.href = "user-entry.html";
-            }
+            break;
         }
-
-        let save = document.getElementById("save");
-        save.style.display = "none";
     }
+    save.style.display = "none";
+}
 
 </script>
 </body>
+
 </html>
