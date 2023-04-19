@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 
 <head>
   <link rel="stylesheet" href="../../assets/css/user-entry.css">
@@ -167,3 +168,173 @@
 </body>
 
 </html>
+=======
+    <head>
+        <link rel="stylesheet" href="../../assets/css/user-entry.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <section class="wrapper">
+            <div class="form signup">
+              <header>Signup</header>
+              <form id="sign-up">
+                <label>
+                  <input type="text" id="first-name" placeholder="First name" pattern="[A-Za-z]+"
+                    title="Username doesn't contain spaces or number" required />
+                </label>
+                <label for="">
+                  <input type="text" id="last-name" placeholder="Last name" required />
+                </label>
+                <label for="">
+                  <input type="text" id="email" placeholder="Email address" required />
+                </label>
+                <label for="">
+                  <input type="password" id="password" placeholder="Password"
+                    title="Password Should be Atleast 8 Charecters and Should Contain Atleast One Uppercase, One LowerCase, One Number and One Special Charecter"
+                    required />
+                </label>
+                <label for="">
+                  <input type="password" id="confirm_password" placeholder="Confirm Password"
+                    title="Password Should be Atleast 8 Charecters and Should Contain Atleast One Uppercase, One LowerCase, One Number and One Special Charecter"
+                    required />
+                </label>
+        
+                <div class="checkbox">
+                  <input type="checkbox" id="signupCheck" />
+                  <label for="signupCheck">I accept all terms & conditions</label>
+                </div>
+                <button id="signup">Signup</button>
+              </form>
+            </div>
+        
+            <div class="form login">
+              <header>Login</header>
+              
+
+                <label for="">
+                  <input type="text" id="email" placeholder="Email address" required />
+                </label>
+                <label for="">
+                  <input type="password" id="password"placeholder="Password" required />
+                </label>
+        
+                <a href="#">Forgot password?</a>
+                <button id="login" onclick="login()">Login</button>
+              <!-- </form> -->
+            </div>
+          </section>
+        
+        
+        
+          <script>
+            const wrapper = document.querySelector(".wrapper"),
+          signupHeader = document.querySelector(".signup header"),
+          loginHeader = document.querySelector(".login header");
+          loginHeader.addEventListener("click", () => {
+          wrapper.classList.add("active");
+        });
+        signupHeader.addEventListener("click", () => {
+          wrapper.classList.remove("active");
+        });
+         let sign_up=document.getElementById("sign-up")
+         sign_up.addEventListener("submit",(e)=>{
+          e.preventDefault();
+          signup();
+         })
+        
+        
+        function signup() {
+        
+          let first_name = document.getElementById("first-name").value;
+          let last_name = document.getElementById("last-name").value;
+          let email_id = document.getElementById("email").value;
+          let password = document.getElementById("password").value;
+          let confirm_password = document.getElementById("confirm_password").value;
+        
+          let user = {
+             "first_name": first_name,
+             "last_name": last_name,
+             "email": email_id,
+             "password": password,
+             "confirm_password": confirm_password
+        
+          };
+          let array;
+        
+          if (JSON.parse(localStorage.getItem("user_signup_list"))) {
+        
+             array = JSON.parse(localStorage.getItem("user_signup_list"))
+          }
+        
+          else {
+             array = []
+          }
+        
+          
+        
+          let j = 0;
+          for (let i = 0; i < array.length; i++) {
+        
+             if (array[i]["email"] == email_id) {
+                j = 1;
+                break;
+             }
+          }
+        
+          if (j == 1) {
+             alert("Email is already exist")
+          }
+          else {
+             array.push(user);
+             localStorage.setItem("user_signup_list", JSON.stringify(array))
+             alert("click the below log-in button")
+          }
+        
+          
+        
+        }
+        
+
+        function login() {
+        
+            let email_id = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+        
+            let record = JSON.parse(localStorage.getItem("user_signup_list"));
+            let profile = {
+              "email": email_id,
+              "password": password
+            }
+            let res;
+        
+            record.find(element => {
+              if (element["email"] == email_id && element["password"] == password) {
+                localStorage.setItem("profile_details", JSON.stringify(profile))
+                return res = 1
+              }
+        
+              else {
+                return res = 0; 
+              }
+            }
+            )
+        
+        
+            if (res == 1) {
+              alert("Login Success👏")
+              window.location.href = "profilepage.html"
+            }
+        
+            else {
+              alert("Username or Password is Wrong")
+            }
+        
+          }
+        
+        
+           </script>
+    </body>
+</html>
+>>>>>>> be1eebb9b9a06a118c684b7359119f1a716e69f8
