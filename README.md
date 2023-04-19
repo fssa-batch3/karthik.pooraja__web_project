@@ -61,3 +61,67 @@ Wireframe: https://drive.google.com/file/d/1OSJSJ6uri7nUO8aKDHtLG45yNvDElv16/vie
 - A alert will come. Click "Yes". The user's account details are deleted. 
 
 - The use is redirected to the "User_entry"page.
+
+
+### Add flashcard: ( completed ✅ ) Scenario 1: add flashcard:
+
+- Log in as a user. Navigate to the vocabulary page. 
+
+- the pattern of the flashcard which will be generated is shown  .
+ 
+- Fill the form .
+ 
+- Click the "Add flashcard" button.
+ 
+- Expected Result: The card will be added in the local storage.
+
+
+### Read flashcard: ( completed ✅ ) Scenario 1: Successfully edit account details Steps:
+
+- Log in as a user. Navigate to the profile page. 
+
+- Click the "Edit Profile" button.
+ 
+- Update the account details.
+ 
+- Click the "Save Profile" button.
+ 
+- Expected Result: The user's account details are updated.
+
+
+### Update flashcard: ( completed ✅ ) Scenario 1: Successfully edit account details Steps:
+
+- Log in as a user. Navigate to the profile page. 
+
+- Click the "Edit Profile" button.
+ 
+- Update the account details.
+ 
+- Click the "Save Profile" button.
+ 
+- Expected Result: The user's account details are updated.
+
+
+### Delete  flashcard: ( completed ✅ ) Scenario 1: Successfully edit account details Steps:
+
+- Log in as a user. Navigate to the profile page. 
+
+- Click the "Edit Profile" button.
+ 
+- Update the account details.
+ 
+- Click the "Save Profile" button.
+ 
+- Expected Result: The user's account details are updated. 
+
+### Flashcard filtration: ( completed ✅ ) Scenario 1:Seeing flashcard based on starting letter of the alphabet:
+
+- Log in as a user. Navigate to the profile page. 
+
+- Click the "Edit Profile" button.
+ 
+- Update the account details.
+ 
+- Click the "Save Profile" button.
+ 
+- Expected Result: The user's account details are updated.
