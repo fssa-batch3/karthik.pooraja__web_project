@@ -76,52 +76,37 @@ Wireframe: https://drive.google.com/file/d/1OSJSJ6uri7nUO8aKDHtLG45yNvDElv16/vie
 - Expected Result: The card will be added in the local storage.
 
 
-### Read flashcard: ( completed ✅ ) Scenario 1: Successfully edit account details Steps:
+### Update flashcard: ( completed ✅ ) Scenario 1: update the created flashcard:
 
-- Log in as a user. Navigate to the profile page. 
-
-- Click the "Edit Profile" button.
+- click the edit button in the flashcard you want to update
  
-- Update the account details.
+- Update the details in the respective prompt.
  
-- Click the "Save Profile" button.
+- Click Ok to all of them.
  
-- Expected Result: The user's account details are updated.
+- Expected Result: That card will be updated.
 
 
-### Update flashcard: ( completed ✅ ) Scenario 1: Successfully edit account details Steps:
+### Delete  flashcard: ( completed ✅ ) Scenario 1: Deleting the flashcard:
 
-- Log in as a user. Navigate to the profile page. 
-
-- Click the "Edit Profile" button.
+- Click the "Delete" button in the flashcard.
  
-- Update the account details.
+- click ok to the prompt.
  
-- Click the "Save Profile" button.
- 
-- Expected Result: The user's account details are updated.
-
-
-### Delete  flashcard: ( completed ✅ ) Scenario 1: Successfully edit account details Steps:
-
-- Log in as a user. Navigate to the profile page. 
-
-- Click the "Edit Profile" button.
- 
-- Update the account details.
- 
-- Click the "Save Profile" button.
- 
-- Expected Result: The user's account details are updated. 
+- Expected Result: That card will not be displayed and deleted from the local storage. 
 
 ### Flashcard filtration: ( completed ✅ ) Scenario 1:Seeing flashcard based on starting letter of the alphabet:
 
-- Log in as a user. Navigate to the profile page. 
+- scroll down to the range slider
 
-- Click the "Edit Profile" button.
+- bring it back to it's starting position 
  
-- Update the account details.
+- slide it to the desired alphabet you want 
  
-- Click the "Save Profile" button.
+- If card is there:it will be shown
  
-- Expected Result: The user's account details are updated.
+- if not:sentence like no alphabet starts with this alphabet
+
+### Read flashcard: ( completed ✅ ) Scenario 1: see the flashcard:
+
+-the card which was created by user will be displayed in the page.
