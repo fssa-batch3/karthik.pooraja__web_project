@@ -117,12 +117,13 @@
         if (array[i]["email"] == email_id) {
           j = 1;
           break;
-        }
+        }      
       }
 
       if (j == 1) {
         alert("Email is already exist")
       }
+      
       else {
         array.push(user);
         localStorage.setItem("user_signup_list", JSON.stringify(array))
