@@ -48,7 +48,7 @@ let save = document.getElementById("save");
 edit_btn.style.display = "block"
 save.style.display = "none"
 
-<<<<<<< HEAD
+
 edit_btn.onclick =() =>{
     edit_btn.style.display = "none";
     save.style.display = "block"
@@ -76,14 +76,13 @@ for (let i = 0; i < users.length; i++) {
         password.value = users[i]["password"]
 
         break;
-=======
+
     edit_btn.addEventListener("click", display)
     function display() {
         let save = document.getElementById("save");
         save.style.display = ""
         edit_btn.style.display="none";
 
->>>>>>> be1eebb9b9a06a118c684b7359119f1a716e69f8
     }
 }
 
@@ -142,10 +141,9 @@ function deleteItem() {
             confirm("Are you sure to delete your account")
             localStorage.setItem("user_signup_list", JSON.stringify(users));
 
-<<<<<<< HEAD
+
             window.location.href = "user-entry.html";
-=======
->>>>>>> be1eebb9b9a06a118c684b7359119f1a716e69f8
+
 
             break;
         }
@@ -155,9 +153,8 @@ function deleteItem() {
 
 </script>
 </body>
-<<<<<<< HEAD
+
 
 </html>
-=======
-</html>
->>>>>>> be1eebb9b9a06a118c684b7359119f1a716e69f8
+
+
