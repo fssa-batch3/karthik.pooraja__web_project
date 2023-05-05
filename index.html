@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>WISENOW HOMEPAGE</title>
         <link rel="stylesheet" href="assets/css/common.css">
+        <link rel="stylesheet" href="assets/css/responsive-common.css">
         <link rel="icon" href="assets/images/logo.png" alt="icon">
 
     </head>
@@ -15,11 +16,11 @@
                 <div >
                     <a href="index.html"><img class="website-title" src="assets/images/logo.png" alt="LOGO"></a>
                 </div>
-                <div >
+                <div class="feature-navigation">
                     <ul class="features-container">
                         <li class="navigation"><a href="pages/list of books/booklist.html">SELECT BOOKS</a></li>
-                        <li class="navigation"><a href="pages/membership/suggestion.html">SUGGESTION</a></li>
-                        <li class="navigation"><a href="pages/membership/log-in.html">LOG-IN</a></li>
+                        <li class="navigation suggestion" id="suggestion"><a href="pages/membership/suggestion.html">SUGGESTION</a></li>
+                        <li class="navigation" id="user_entry"><a href="pages/membership/user-entry.html">USER ENTRY</a></li>
                         <li class="navigation"><a href="">ABOUT</a></li>
                     </ul>
                 </div>
@@ -53,33 +54,33 @@
                         <img src="https://gabrielromualdo.com/api/content/static_files/flipping-card-animation-css/code_result_2.gif" alt="flashcard">
                         
                     </div>
-                    <br>
-                    <br>
-                    <div class="audio-feature">
-                        <div class="video-container">
-                        <video autoplay muted loop>
-                            <source src="assets/videos/Audio tag features.mp4">
-                            Your browser does not support this video format
-                        </video>
-                        </div>
-                        <div  class="features-in-words">
-                        <h2>AUDIO FEATURE</h2>
-                        <p>Along with vocabulary,for effective usage of words in day-to-day application, Audio feature is also added up</p>
-                        <p>this allows to play the audio for that word which is above that flashcard</p>
-                        <p>you can use the playback speed to observe the word in your own pace</p>
-                        </div>
-                        
-                    </div>
-    
                 </div>
-            </div>
-            <!-- <div >
-                <a href="pages/list of books/booklist.html"><img class="bottom-navigator" src="assets/images/Navigation-arrow.jpg" alt="navigation arrow"></a>
-            </div> -->
-            <div class="bottom-navigator"> 
-            <input type="submit" class="submitBtn booklist-navigation" value="click here to view books">
             </div>
 
         </main>
+        <script>
+            const loggedinuser=localStorage.getItem("login_id")
+            const user_entry_button=document.querySelector("#user_entry")
+            if (loggedinuser==null){
+
+            }
+            else{
+                if (loggedinuser!==false){
+                    user_entry_button.style.display="none"
+                    const profileview=document.createElement("button")
+                    profileview.setAttribute("class","")
+                    profileview.innerText="profile"
+                    profileview.style.width="100px"
+                    profileview.style.left="50px"
+                    profileview.addEventListener("click",()=>{
+                        window.location.href="pages/membership/profilepage.html"
+                    });
+                    document.querySelector(".suggestion").append(profileview)
+                }
+                else{
+                    loginbtn.style.display="block"
+                }
+            }
+        </script>
     </body>
 </html>

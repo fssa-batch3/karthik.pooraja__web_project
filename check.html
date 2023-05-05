@@ -1,0 +1,404 @@
+<html>
+
+<head>
+    <title>Range Slider Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:700" rel="stylesheet">
+    <style>
+        body {
+
+            background: #ecf0f1;
+            color: #34495e;
+            padding-top: 40px;
+            text-shadow: white 1px 1px 1px;
+        }
+
+        .value {
+            font-family: "Dosis", Helvetica, Arial, sans-serif;
+            border-bottom: 4px dashed #bdc3c7;
+            text-align: center;
+            font-weight: bold;
+            font-size: 10em;
+            width: 300px;
+            height: 100px;
+            line-height: 60px;
+            margin: 40px auto;
+            letter-spacing: -.07em;
+            text-shadow: white 2px 2px 2px;
+        }
+
+        input[type="range"] {
+            display: block;
+            -webkit-appearance: none;
+            background-color: #bdc3c7;
+            width: 300px;
+            height: 5px;
+            border-radius: 5px;
+            margin: 0 auto;
+            outline: 0;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            background-color: #e74c3c;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid white;
+            cursor: pointer;
+            transition: .3s ease-in-out;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            background-color: white;
+            border: 2px solid #e74c3c;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:active {
+            transform: scale(1.6);
+        }
+
+        value {
+            font-family: "Dosis", Helvetica, Arial, sans-serif;
+            border-bottom: 5px dashed #bdc3c7;
+            text-align: center;
+            font-weight: bold;
+            font-size: 10em;
+            width: 300px;
+            height: 100px;
+            line-height: 60px;
+            margin: 40px auto;
+            letter-spacing: -.07em;
+            text-shadow: white 2px 2px 2px;
+        }
+
+        input[type="range"] {
+            display: block;
+            -webkit-appearance: none;
+            background-color: #bdc3c7;
+            width: 300px;
+            height: 7px;
+            border-radius: 5px;
+            margin: 0 auto;
+            outline: 0;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            background-color: #e74c3c;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid white;
+            cursor: pointer;
+            transition: .3s ease-in-out;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            background-color: white;
+            border: 2px solid #e74c3c;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:active {
+            transform: scale(1.2);
+        }
+
+        .flashcard {
+            display: inline-block;
+            width: 200px;
+            height: 260px;
+            perspective: 600px;
+            margin: 40px;
+        }
+
+        .flashcard__inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+
+        .flashcard.is-flipped .flashcard__inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard__face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            line-height: 1.5em;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.5em;
+            backface-visibility: hidden;
+        }
+
+        .flashcard__face--front {
+            background: crimson;
+        }
+
+        .flashcard__face--back {
+            background: slateblue;
+            transform: rotateY(180deg);
+        }
+
+        .front-top,
+        .back-top {
+            position: absolute;
+            top: 7%;
+            left: 0;
+            right: 0;
+        }
+
+        .front-bottom,
+        .back-bottom {
+            position: absolute;
+            bottom: 40%;
+            left: 0;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form>
+        <label for="word">Word:</label>
+        <input type="text" id="word" name="word"><br><br>
+
+        <label for="synonym">Synonym:</label>
+        <input type="text" id="synonym" name="synonym"><br><br>
+
+        <label for="meaning">Meaning:</label>
+        <input type="text" id="meaning" name="meaning"><br><br>
+
+        <label for="example">Example:</label>
+        <input type="text" id="example" name="example"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div class="flashcard" id="flashcard">
+        <div class="flashcard__inner">
+            <div class="flashcard__face flashcard__face--front">
+                <div class="front-top">
+                    Word
+                </div>
+                <div class="front-bottom">
+                    Synonym
+                </div>
+            </div>
+            <div class="flashcard__face flashcard__face--back">
+                <div class="back-top">
+                    Meaning
+                </div>
+                <div class="back-bottom">
+                    Example
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="value">A</div>
+    <input type="range" min="1" max="26" step="1" onchange="updateLetter(this.value)">
+    <div id="flashcards-container">
+
+    </div>
+    <script>
+
+        let words = JSON.parse(localStorage.getItem('words')) ?? {
+            A: {},
+            B: {},
+            C: {},
+            D: {},
+            E: {},
+            F: {},
+            G: {},
+            H: {},
+            I: {},
+            J: {},
+            K: {},
+            L: {},
+            M: {},
+            N: {},
+            O: {},
+            P: {},
+            Q: {},
+            R: {},
+            S: {},
+            T: {},
+            U: {},
+            V: {},
+            W: {},
+            X: {},
+            Y: {},
+            Z: {},
+        };
+
+
+        function updateLetter(value) {
+            let letter = String.fromCharCode(64 + parseInt(value));
+            document.querySelector('.value').textContent = letter;
+
+            flashcardsContainer.innerHTML = '';
+
+            Object.keys(words).find(function (obj) {
+
+                if (letter === obj) {
+
+                    console.log( Object.keys(obj).);
+
+                   
+                }
+            })
+
+        }
+
+
+        const form = document.querySelector('form');
+        const wordInput = document.querySelector('#word');
+        const synonymInput = document.querySelector('#synonym');
+        const meaningInput = document.querySelector('#meaning');
+        const exampleInput = document.querySelector('#example');
+        const flashcardsContainer = document.querySelector('#flashcards-container');
+        const flashcard = document.querySelector('.flashcard');
+        flashcard.addEventListener('click', function () {
+            flashcard.classList.toggle('is-flipped');
+        });
+
+        var cards = document.querySelectorAll('.flashcard_inner');
+
+
+        [...cards].forEach((card) => {
+            card.addEventListener('click', function () {
+                card.classList.toggle('is-flipped');
+            });
+        });
+
+
+
+        function renderFlashcards() {
+
+
+            Object.keys(words).forEach((el) => {
+
+                const letterGroup = words[el];
+
+
+                if (letterGroup.length > 0) {
+                    const letterHeader = document.createElement('h2');
+                    letterHeader.textContent = letter;
+
+                    flashcardsContainer.appendChild(letterHeader);
+
+                    letterGroup.forEach((flashcard, index) => {
+
+                        const card = document.createElement('div');
+
+                        card.classList.add('flashcard');
+
+                        card.innerHTML = `
+<div class="flashcard" id="flashcard">
+<div class="flashcard__inner">
+<div class="flashcard__face flashcard__face--front">
+<div class="front-top">${flashcard.word}</div>
+<div class="front-bottom">${flashcard.synonym}</div>
+</div>
+<div class="flashcard__face flashcard__face--back">
+<div class="back-top">${flashcard.meaning}</div>
+<div class="back-bottom">${flashcard.example}</div>
+</div>
+</div>
+<div class="flashcard__buttons">
+<button class="flashcard__edit-button" data-letter="${letter}" data-index="${index}">Edit</button>
+<button class="flashcard__delete-button" data-letter="${letter}" data-index="${index}">Delete</button>
+</div>
+</div>
+`;
+                        flashcardsContainer.appendChild(card);
+                    });
+                }
+            });
+        }
+
+        function addFlashcard(event) {
+            event.preventDefault();
+            const word = wordInput.value;
+            const synonym = synonymInput.value;
+            const meaning = meaningInput.value;
+            const example = exampleInput.value;
+            if (word && synonym && meaning && example) {
+                const firstLetter = word.charAt(0).toUpperCase();
+                const flashcard = { word, synonym, meaning, example };
+                words[firstLetter].push(flashcard);
+                localStorage.setItem('words', JSON.stringify(words));
+                alert(`Word "${word}" added successfully!`);
+                renderFlashcards()
+                form.reset();
+            }
+        }
+
+
+
+        function deleteFlashcard(event) {
+            const letter = event.target.dataset.letter;
+            const index = event.target.dataset.index;
+            if (letter && index) {
+                if (confirm('Are you sure you want to delete this flashcard?')) {
+                    words[letter].splice(index, 1);
+                    localStorage.setItem('words', JSON.stringify(words));
+                    renderFlashcards();
+                }
+            }
+        }
+
+
+        function editFlashcard(event) {
+            const letter = event.target.dataset.letter;
+            const index = event.target.dataset.index;
+            if (letter && index) {
+                const flashcard = words[letter][index];
+                const frontText = prompt('Enter the front text:', flashcard.word);
+                const backText = prompt('Enter the back text:', flashcard.synonym);
+                const meaningText = prompt('Enter the meaning text:', flashcard.meaning);
+                const exampleText = prompt('Enter the example text:', flashcard.example);
+
+                if (frontText && backText && meaningText && exampleText) {
+                    const firstLetter = frontText.charAt(0).toUpperCase();
+                    if (firstLetter === letter) {
+                        const updatedFlashcard = {
+                            word: frontText,
+                            synonym: backText,
+                            meaning: meaningText,
+                            example: exampleText,
+                        };
+                        words[letter][index] = updatedFlashcard;
+                        localStorage.setItem('words', JSON.stringify(words));
+                        renderFlashcards();
+                    } else {
+                        alert(`The word "${frontText}" should start with "${letter}"`);
+                    }
+                }
+            }
+        }
+
+
+        form.addEventListener('submit', addFlashcard);
+        flashcardsContainer.addEventListener('click', (event) => {
+            if (event.target.classList.contains('flashcard__delete-button')) {
+                deleteFlashcard(event);
+            } else if (event.target.classList.contains('flashcard__edit-button')) {
+                editFlashcard(event);
+            }
+        });
+
+        renderFlashcards();
+
+    </script>
+</body>
+
+</html>
